@@ -25,9 +25,14 @@ namespace CandyShop
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            tbLollipop.Text = "0";
-            tbChocolate.Text = "0";
-            tbFish.Text = "0";
+            tbLollipop.Text = @"0";
+            tbChocolate.Text = @"0";
+            tbFish.Text = @"0";
+            tbLollipopTotal.Text = "";
+            tbChocolateTotal.Text = "";
+            tbFishTotal.Text = "";
+            tbSumma.Text = "";
+            tbLollipop.Focus();
         }
 
         private void btnCalculate_Click(object sender, EventArgs e)
@@ -51,10 +56,12 @@ namespace CandyShop
             var lollipopTotal = lollipopAmount * _lollipopPrice;
             var chocolateTotal = chocolateAmount * _chocolatePrice;
             var fishTotal = fishAmount * _fishPrice;
+            var totalCost = lollipopTotal + chocolateTotal + fishTotal;
 
             tbLollipopTotal.Text = lollipopTotal.ToString("C2", CultureInfo.CurrentCulture);
             tbChocolateTotal.Text = chocolateTotal.ToString("C2", CultureInfo.CurrentCulture);
             tbFishTotal.Text = fishTotal.ToString("C2", CultureInfo.CurrentCulture);
+            tbSumma.Text = totalCost.ToString("C2", CultureInfo.CurrentCulture);
         }
 
         private static int GetValueFromTextbox(TextBoxBase textBox)
